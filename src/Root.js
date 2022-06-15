@@ -1,5 +1,5 @@
 import React from 'react'
 
-const Root = () => <>Initialize commit</>
+const Root = () => <div>Ready</div>
 
 export default Root
