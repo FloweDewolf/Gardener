@@ -22,10 +22,10 @@ const InputWrapper = styled.div`
     top: 50%;
     transform: translateY(-50%);
     left: 15px;
-    color: #d2d2db;
+    color: ${({ theme }) => theme.colors.gray};
     cursor: text;
     transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.fontSize.xs};
     user-select: none;
   }
 
@@ -35,7 +35,7 @@ const InputWrapper = styled.div`
     border-bottom: 1px solid ${({ theme }) => theme.colors.white};
     background-color: transparent;
     outline: none;
-    font-size: 30px;
+    font-size: ${({ theme }) => theme.fontSize.s};
   }
 
   .input:focus ~ .label,
@@ -56,20 +56,21 @@ const StyledButton = styled.button`
   border: none;
   cursor: pointer;
   transition: width 2s linear;
+  color: ${({ theme }) => theme.colors.gray};
 
   ::before {
     content: '';
     position: absolute;
     bottom: 0;
     height: 1px;
-    width: 50%;
+    width: 100%;
     background-color: ${({ theme }) => theme.colors.white};
     transition: width 0.2s ease-in-out;
   }
 
   :hover {
     ::before {
-      width: 150%;
+      width: 100px;
     }
   }
 `

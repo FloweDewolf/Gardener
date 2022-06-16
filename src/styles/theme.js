@@ -1,6 +1,7 @@
 export const theme = {
   colors: {
     white: 'ghostwhite',
+    gray: '#d2d2db',
     black: '#111111',
     brown: '#6c5726',
     green: '#27fb6b',
@@ -17,5 +18,6 @@ export const theme = {
     l: '75px',
     m: '50px',
     s: '25px',
+    xs: '20px',
   },
 }

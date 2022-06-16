@@ -23,13 +23,22 @@ const StyledNav = styled.nav`
       a {
         display: block;
         height: 100%;
-        width: 100%;
         font-size: ${({ theme }) => theme.fontSize.m};
         text-align: center;
         text-shadow: 7px 4px 1px rgba(10, 46, 54, 0.5);
         line-height: 100px;
         text-decoration: none;
         color: ${({ theme }) => theme.colors.white};
+      }
+
+      div {
+        display: flex;
+        a {
+          text-align: left;
+          :last-child {
+            color: ${({ theme }) => theme.colors.gray};
+          }
+        }
       }
     }
   }
@@ -50,7 +59,10 @@ const Navigation = () => {
           <Link to="/home">Home</Link>
         </li>
         <li>
-          <Link to="/home/warnings">Warnings</Link>
+          <div>
+            <Link to="/home/warnings/warn">Warn</Link>
+            <Link to="/home/warnings">ings</Link>
+          </div>
         </li>
         <li>
           <Link to="/home/weather">Weather</Link>
