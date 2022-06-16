@@ -5,7 +5,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import Template from 'components/Template'
 import Warnings from './Warnings'
 
-const Authenticated = () => {
+const Home = () => {
   const isAuth = useSelector((state) => state.auth.value.isAuth)
   const navigate = useNavigate()
 
@@ -24,4 +24,4 @@ const Authenticated = () => {
   )
 }
 
-export default Authenticated
+export default Home

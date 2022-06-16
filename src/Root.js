@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 import AuthForm from './views/AuthForm'
-import Authenticated from './views/Authenticated'
+import Home from './views/Home'
 
 const Root = () => {
   const isAuth = useSelector((state) => state.auth.value.isAuth)
@@ -17,7 +17,7 @@ const Root = () => {
 
   return (
     <Routes>
-      <Route path="/home/*" element={<Authenticated />} />
+      <Route path="/home/*" element={<Home />} />
       <Route path="/" element={<AuthForm />} />
       <Route path="/login" element={<AuthForm />} />
       <Route path="/register" element={<AuthForm />} />
