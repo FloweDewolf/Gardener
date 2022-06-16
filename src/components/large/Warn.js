@@ -25,7 +25,7 @@ const Warn = () => {
   return (
     <StyledForm onSubmit={(e) => e.preventDefault()}>
       <InputWrapper>
-        <label htmlFor="id">label</label>
+        <label htmlFor="id">labeltest</label>
         <input id="id" type="text" />
       </InputWrapper>
     </StyledForm>
