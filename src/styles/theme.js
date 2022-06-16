@@ -2,7 +2,9 @@ export const theme = {
   colors: {
     white: 'ghostwhite',
     black: '#111111',
+    brown: '#6c5726',
     green: '#27fb6b',
+    blue: '#023f92',
     success: '#14cc60',
     error: '#FF8383',
     warning: '#E1D888',

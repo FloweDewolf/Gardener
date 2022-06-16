@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { setIsAuth } from 'reducers/authSlice'
-import { useNavigate } from 'react-router-dom'
-import { Button } from '../components/small/Button'
+import { useSelector } from 'react-redux'
+import { Routes, Route, useNavigate } from 'react-router-dom'
+
+import Template from 'components/Template'
+import Test from './Test'
 
 const Authenticated = () => {
-  const dispatch = useDispatch()
   const isAuth = useSelector((state) => state.auth.value.isAuth)
   const navigate = useNavigate()
 
@@ -16,17 +16,11 @@ const Authenticated = () => {
   }, [isAuth])
 
   return (
-    <div>
-      <Button
-        type="button"
-        onClick={() => {
-          sessionStorage.removeItem('Auth Token')
-          dispatch(setIsAuth())
-        }}
-      >
-        Log out
-      </Button>
-    </div>
+    <Template>
+      <Routes>
+        <Route path="/test" element={<Test />} />
+      </Routes>
+    </Template>
   )
 }
 

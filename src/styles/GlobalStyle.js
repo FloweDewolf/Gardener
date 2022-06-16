@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: ${({ theme }) => theme.colors.background};
+    overflow: hidden;
   }
 
   *::after, *::before {

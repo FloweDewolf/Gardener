@@ -9,7 +9,7 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
 `
 
-export const StyledH1 = styled.p`
+export const StyledH1 = styled.h1`
   margin-top: 50px;
   margin-bottom: 50px;
   font-size: ${({ theme }) => theme.fontSize.xxl};
