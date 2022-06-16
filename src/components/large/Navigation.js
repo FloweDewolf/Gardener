@@ -50,13 +50,10 @@ const Navigation = () => {
           <Link to="/home">Home</Link>
         </li>
         <li>
-          <Link to="/home/form">Form</Link>
+          <Link to="/home/warnings">Warnings</Link>
         </li>
         <li>
-          <Link to="/home/three">Three</Link>
-        </li>
-        <li>
-          <Link to="/home/four">Four</Link>
+          <Link to="/home/weather">Weather</Link>
         </li>
         <li>
           <Link to="/login" onClick={handleLogout}>

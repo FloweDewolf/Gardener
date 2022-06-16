@@ -5,7 +5,7 @@ import Navigation from 'components/large/Navigation'
 
 const Container = styled.div`
   height: 100vh;
-  display: grid;
+  display: flex;
   flex-direction: column;
 `
 
@@ -17,7 +17,6 @@ const Blob = styled.div`
   width: 50vmax;
   z-index: -2;
   animation: move 3s linear infinite;
-  transform: scale(2.3);
   transform-origin: 50% 50%;
 
   @keyframes move {

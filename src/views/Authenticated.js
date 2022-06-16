@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 import Template from 'components/Template'
-import Test from './Test'
+import Warnings from './Warnings'
 
 const Authenticated = () => {
   const isAuth = useSelector((state) => state.auth.value.isAuth)
@@ -18,7 +18,7 @@ const Authenticated = () => {
   return (
     <Template>
       <Routes>
-        <Route path="/test" element={<Test />} />
+        <Route path="/warnings" element={<Warnings />} />
       </Routes>
     </Template>
   )
