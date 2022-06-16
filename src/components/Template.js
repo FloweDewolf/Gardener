@@ -1,34 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+
 import Navigation from 'components/large/Navigation'
-
-const Container = styled.div`
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-`
-
-const Blob = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  fill: ${({ theme }) => theme.colors.dark};
-  width: 50vmax;
-  z-index: -2;
-  animation: move 6s linear infinite;
-  transform-origin: 50% 50%;
-
-  @keyframes move {
-    from {
-      transform: scale(2.3) rotate(0deg);
-    }
-
-    to {
-      transform: scale(2.3) rotate(360deg);
-    }
-  }
-`
+import { Blob, Container } from './Template.styles'
 
 const MainTemplate = ({ children }) => {
   return (
