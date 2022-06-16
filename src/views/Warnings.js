@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Warn from 'components/large/Warn/Warn'
+import Warn from 'views/Warn'
 
 const Warnings = () => {
   return (
