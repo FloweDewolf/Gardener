@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { changeFormValues, clearForm, addWarning } from 'reducers/warningsSlice'
+import { changeFormValues, clearForm, addWarning } from 'slices/warningsSlice'
 
 import { InputWrapper, StyledButton, StyledForm } from './Warn.styles'
 

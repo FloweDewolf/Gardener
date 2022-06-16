@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { setIsAuth } from 'reducers/authSlice'
+import { setIsAuth } from 'slices/authSlice'
 
 const StyledNav = styled.nav`
   justify-self: center;

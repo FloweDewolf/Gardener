@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setInput, clearInputs, setIsAuth } from 'reducers/authSlice'
+import { setInput, clearInputs, setIsAuth } from 'slices/authSlice'
 
 import { useLocation, useNavigate, Link } from 'react-router-dom'
 
