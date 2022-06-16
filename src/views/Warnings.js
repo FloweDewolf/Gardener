@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Routes, Route } from 'react-router-dom'
-import Warn from 'components/large/Warn'
+import Warn from 'components/large/Warn/Warn'
 
 const Container = styled.div`
   * {
