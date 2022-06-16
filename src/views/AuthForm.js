@@ -37,7 +37,7 @@ const AuthForm = () => {
     }
   }, [])
 
-  const handleSubmit = (e) => {
+  const handleSubmitInAuthForm = (e) => {
     e.preventDefault()
 
     if (location.pathname === '/login' || location.pathname === '/') {
@@ -97,7 +97,7 @@ const AuthForm = () => {
     }
   }
 
-  const handleChange = ({ target }) => {
+  const handleChangeInAuthForm = ({ target }) => {
     const input = { type: target.type, value: target.value }
     dispatch(setInput(input))
   }
@@ -105,16 +105,20 @@ const AuthForm = () => {
     <Container>
       <StyledH1>Gardener</StyledH1>
       <StyledFormWrapper>
-        <StyledForm onSubmit={handleSubmit}>
+        <StyledForm onSubmit={handleSubmitInAuthForm}>
           <label>
             Email
-            <input type="email" onChange={handleChange} value={auth.email} />
+            <input
+              type="email"
+              onChange={handleChangeInAuthForm}
+              value={auth.email}
+            />
           </label>
           <label>
             Password
             <input
               type="password"
-              onChange={handleChange}
+              onChange={handleChangeInAuthForm}
               value={auth.password}
             />
           </label>
