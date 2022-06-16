@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Navigation from 'components/large/Navigation'
+import Navigation from 'components/large/Navigation/Navigation'
 import { Blob, Container } from './Template.styles'
 
 const MainTemplate = ({ children }) => {
