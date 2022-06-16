@@ -18,7 +18,7 @@ const Authenticated = () => {
   return (
     <Template>
       <Routes>
-        <Route path="/warnings" element={<Warnings />} />
+        <Route path="/warnings/*" element={<Warnings />} />
       </Routes>
     </Template>
   )
