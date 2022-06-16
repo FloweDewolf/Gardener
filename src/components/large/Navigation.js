@@ -35,7 +35,7 @@ const StyledNav = styled.nav`
         display: flex;
         a {
           text-align: left;
-          :last-child {
+          :focus {
             color: ${({ theme }) => theme.colors.gray};
           }
         }
