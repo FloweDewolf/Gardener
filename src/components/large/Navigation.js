@@ -29,15 +29,16 @@ const StyledNav = styled.nav`
         line-height: 100px;
         text-decoration: none;
         color: ${({ theme }) => theme.colors.white};
+
+        :focus {
+          color: ${({ theme }) => theme.colors.gray};
+        }
       }
 
       div {
         display: flex;
         a {
           text-align: left;
-          :focus {
-            color: ${({ theme }) => theme.colors.gray};
-          }
         }
       }
     }
