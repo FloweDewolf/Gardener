@@ -1,5 +1,7 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
+import { changeFormValues, clearForm, addWarning } from 'reducers/warningsSlice'
 
 const StyledForm = styled.form`
   margin-top: 150px;
@@ -78,16 +80,43 @@ const StyledButton = styled.button`
 `
 
 const Warn = () => {
+  const warnings = useSelector((state) => state.warnings.value)
+  const dispatch = useDispatch()
+
+  const handleSubmitInWarn = (e) => {
+    e.preventDefault()
+    dispatch(addWarning(e.target.value))
+    dispatch(clearForm())
+  }
+
+  const handleChangeInWarn = ({ target }) => {
+    dispatch(changeFormValues({ id: target.id, value: target.value }))
+  }
+
   return (
-    <StyledForm onSubmit={(e) => e.preventDefault()}>
+    <StyledForm onSubmit={handleSubmitInWarn}>
       <InputWrapper>
-        <input id="title" type="text" className="input" placeholder=" " />
+        <input
+          onChange={handleChangeInWarn}
+          value={warnings.formValues.title}
+          id="title"
+          type="text"
+          className="input"
+          placeholder=" "
+        />
         <label htmlFor="title" className="label">
           Title
         </label>
       </InputWrapper>
       <InputWrapper>
-        <input id="message" type="text" className="input" placeholder=" " />
+        <input
+          onChange={handleChangeInWarn}
+          value={warnings.formValues.message}
+          id="message"
+          type="text"
+          className="input"
+          placeholder=" "
+        />
         <label htmlFor="message" className="label">
           Message
         </label>
