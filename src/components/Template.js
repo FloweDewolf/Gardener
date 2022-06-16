@@ -16,7 +16,7 @@ const Blob = styled.div`
   fill: ${({ theme }) => theme.colors.dark};
   width: 50vmax;
   z-index: -2;
-  animation: move 3s linear infinite;
+  animation: move 6s linear infinite;
   transform-origin: 50% 50%;
 
   @keyframes move {
