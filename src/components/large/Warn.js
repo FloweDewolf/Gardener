@@ -64,14 +64,16 @@ const StyledButton = styled.button`
     bottom: 0;
     height: 1px;
     width: 100%;
-    background-color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.gray};
     transition: width 0.2s ease-in-out;
   }
 
   :hover {
     ::before {
       width: 100px;
+      color: ${({ theme }) => theme.colors.white};
     }
+    color: ${({ theme }) => theme.colors.white};
   }
 `
 
