@@ -2,22 +2,75 @@ import React from 'react'
 import styled from 'styled-components'
 
 const StyledForm = styled.form`
+  margin-top: 150px;
+  width: 75%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `
 
 const InputWrapper = styled.div`
+  width: 50%;
   position: relative;
+
+  :first-child {
+    margin-bottom: 50px;
+  }
 
   label {
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15px;
+    color: #d2d2db;
+    cursor: text;
+    transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+    font-size: 16px;
+    user-select: none;
   }
 
   input {
+    width: 100%;
     border: none;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.white};
     background-color: transparent;
     outline: none;
+    font-size: 30px;
+  }
+
+  .input:focus ~ .label,
+  .input:not(:placeholder-shown).input:not(:focus) ~ .label {
+    top: -15px;
+    left: 0;
+    font-size: 14px;
+  }
+`
+
+const StyledButton = styled.button`
+  margin-top: 20px;
+  font-size: ${({ theme }) => theme.fontSize.s};
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: width 2s linear;
+
+  ::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    width: 50%;
+    background-color: ${({ theme }) => theme.colors.white};
+    transition: width 0.2s ease-in-out;
+  }
+
+  :hover {
+    ::before {
+      width: 150%;
+    }
   }
 `
 
@@ -25,9 +78,18 @@ const Warn = () => {
   return (
     <StyledForm onSubmit={(e) => e.preventDefault()}>
       <InputWrapper>
-        <label htmlFor="id">labeltest</label>
-        <input id="id" type="text" />
+        <input id="title" type="text" className="input" placeholder=" " />
+        <label htmlFor="title" className="label">
+          Title
+        </label>
       </InputWrapper>
+      <InputWrapper>
+        <input id="message" type="text" className="input" placeholder=" " />
+        <label htmlFor="message" className="label">
+          Message
+        </label>
+      </InputWrapper>
+      <StyledButton type="submit">ADD</StyledButton>
     </StyledForm>
   )
 }
