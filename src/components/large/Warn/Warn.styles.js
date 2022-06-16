@@ -35,6 +35,7 @@ export const InputWrapper = styled.div`
     background-color: transparent;
     outline: none;
     font-size: ${({ theme }) => theme.fontSize.s};
+    color: ${({ theme }) => theme.colors.white};
   }
 
   .input:focus ~ .label,
