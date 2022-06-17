@@ -33,9 +33,7 @@ export const StyledNav = styled.nav`
 
       div {
         display: flex;
-        a {
-          text-align: left;
-        }
+        justify-content: center;
       }
     }
   }
