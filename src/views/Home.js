@@ -10,6 +10,7 @@ import { db } from '../firebase'
 import { addWarning } from '../slices/warningsSlice'
 
 import Warnings from './Warnings'
+import Warn from './Warn'
 
 const Home = () => {
   const dispatch = useDispatch()
@@ -34,7 +35,8 @@ const Home = () => {
   return (
     <Template>
       <Routes>
-        <Route path="/warnings/*" element={<Warnings />} />
+        <Route path="/warnings" element={<Warnings />} />
+        <Route path="/warn" element={<Warn />} />
       </Routes>
     </Template>
   )

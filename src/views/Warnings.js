@@ -1,24 +1,21 @@
 import React from 'react'
+import styled from 'styled-components'
 import { useSelector } from 'react-redux'
-import { Routes, Route } from 'react-router-dom'
 
-import Warn from 'views/Warn'
+const Container = styled.div``
 
 const Warnings = () => {
   const warnings = useSelector((state) => state.warnings.value)
 
   return (
-    <div>
+    <Container>
       {warnings.warnings.map((warning) => (
         <p>
           {warning.title}
           {warning.message}
         </p>
       ))}
-      <Routes>
-        <Route path="/warn" element={<Warn />} />
-      </Routes>
-    </div>
+    </Container>
   )
 }
 

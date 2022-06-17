@@ -21,7 +21,7 @@ const Navigation = () => {
         </li>
         <li>
           <div>
-            <Link to="/home/warnings/warn">Warn</Link>
+            <Link to="/home/warn">Warn</Link>
             <Link to="/home/warnings">ings</Link>
           </div>
         </li>
