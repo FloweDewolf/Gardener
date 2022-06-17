@@ -26,6 +26,7 @@ const Warn = () => {
       await addDoc(collection(db, 'warnings'), {
         title: warnings.formValues.title,
         message: warnings.formValues.message,
+        id: warnings.formValues.id,
       })
     })()
     toast.success('Warning was added', {

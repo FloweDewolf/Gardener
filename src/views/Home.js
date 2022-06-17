@@ -27,7 +27,9 @@ const Home = () => {
     ;(async () => {
       const querySnapshot = await getDocs(collection(db, 'warnings'))
       querySnapshot.forEach((doc) => {
-        dispatch(initWarnings(doc.data()))
+        let data = doc.data()
+        data = { ...data, id: doc.id }
+        dispatch(initWarnings(data))
       })
     })()
   }, [])

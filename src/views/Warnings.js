@@ -13,6 +13,7 @@ const Warnings = () => {
         <p>
           {warning.title}
           {warning.message}
+          {warning.id}
         </p>
       ))}
     </Container>
