@@ -2,6 +2,8 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeFormValue, clearForm, addWarning } from 'slices/warningsSlice'
 
+import { toast } from 'react-toastify'
+
 import { collection, addDoc } from 'firebase/firestore'
 import { db } from '../firebase'
 
@@ -26,6 +28,15 @@ const Warn = () => {
         message: warnings.formValues.message,
       })
     })()
+    toast.success('Warning was added', {
+      position: 'bottom-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
   }
 
   const handleChangeInWarn = ({ target }) => {
