@@ -6,11 +6,10 @@ const Container = styled.div``
 
 const Warnings = () => {
   const warnings = useSelector((state) => state.warnings.value)
-
   return (
     <Container>
       {warnings.warnings.map((warning) => (
-        <p>
+        <p key={warning.id}>
           {warning.title}
           {warning.message}
           {warning.id}
