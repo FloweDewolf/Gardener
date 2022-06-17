@@ -48,11 +48,21 @@ const AuthForm = () => {
           dispatch(setIsAuth())
           navigate('/home')
           dispatch(clearInputs())
+
+          toast.success('Log in success', {
+            position: 'bottom-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          })
         })
         .catch((err) => {
           if (err.code === 'auth/wrong-password') {
             toast.error('Please check the Password!', {
-              position: 'top-right',
+              position: 'bottom-right',
               autoClose: 5000,
               hideProgressBar: false,
               closeOnClick: true,
@@ -62,7 +72,7 @@ const AuthForm = () => {
             })
           } else if (err.code === 'auth/user-not-found') {
             toast.error('Please check the Email', {
-              position: 'top-right',
+              position: 'bottom-right',
               autoClose: 5000,
               hideProgressBar: false,
               closeOnClick: true,
@@ -80,6 +90,16 @@ const AuthForm = () => {
           dispatch(setIsAuth())
           navigate('/home')
           dispatch(clearInputs())
+
+          toast.success('Sign in success', {
+            position: 'bottom-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          })
         })
         .catch((err) => {
           if (err.code === 'auth/email-already-in-use') {
