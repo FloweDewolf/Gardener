@@ -4,6 +4,8 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { initWarnings } from 'slices/warningsSlice'
 
+import { ToastContainer } from 'react-toastify'
+
 import Template from 'components/Template'
 
 import { collection, getDocs } from '@firebase/firestore'
@@ -38,6 +40,18 @@ const Home = () => {
         <Route path="/warnings" element={<Warnings />} />
         <Route path="/warn" element={<Warn />} />
       </Routes>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        toastStyle={{ backgroundColor: '#0a2e36', color: 'whitesmoke' }}
+      />
     </Template>
   )
 }
