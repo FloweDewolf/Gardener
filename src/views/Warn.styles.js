@@ -56,15 +56,15 @@ export const InputWrapper = styled.div`
 
 export const StyledButton = styled.button`
   margin-top: 35px;
-  font-size: ${({ theme }) => theme.fontSize.s};
+  font-size: 40px;
   display: flex;
   align-self: start;
   position: relative;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  transition: padding-right 0.2s ease-in-out;
   color: ${({ theme }) => theme.colors.gray};
+  transition: all 0.2s ease-in-out;
 
   ::before {
     content: '';
@@ -76,8 +76,9 @@ export const StyledButton = styled.button`
   }
 
   :hover {
-    padding-right: calc(100% - 52.875px);
+    padding-right: calc(100% - 84.6094px);
     color: ${({ theme }) => theme.colors.white};
+    text-shadow: 100px 0 1px #d2d2db;
 
     ::before {
       color: ${({ theme }) => theme.colors.white};
