@@ -1,10 +1,15 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { changeFormValue, clearForm, addWarning } from 'slices/warningsSlice'
+import {
+  changeFormValue,
+  clearForm,
+  updateWarnings,
+} from 'slices/warningsSlice'
 
 import { toast } from 'react-toastify'
 
 import { collection, addDoc } from 'firebase/firestore'
+import { getDocs } from '@firebase/firestore'
 import { db } from '../firebase'
 
 import {
@@ -20,14 +25,22 @@ const Warn = () => {
 
   const handleSubmitInWarn = (e) => {
     e.preventDefault()
-    dispatch(addWarning())
     dispatch(clearForm())
     ;(async () => {
       await addDoc(collection(db, 'warnings'), {
         title: warnings.formValues.title,
         message: warnings.formValues.message,
-        id: warnings.formValues.id,
       })
+    })()
+    ;(async () => {
+      const payload = []
+      const querySnapshot = await getDocs(collection(db, 'warnings'))
+      querySnapshot.forEach((doc) => {
+        let obj = doc.data()
+        obj = { ...obj, id: doc.id }
+        payload.push(obj)
+      })
+      dispatch(updateWarnings(payload))
     })()
     toast.success('Warning was added', {
       position: 'bottom-right',

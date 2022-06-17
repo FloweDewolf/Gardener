@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { initWarnings } from 'slices/warningsSlice'
+import { updateWarnings } from 'slices/warningsSlice'
 
 import Template from 'components/Template'
 
@@ -25,12 +25,14 @@ const Home = () => {
 
   useEffect(() => {
     ;(async () => {
+      const payload = []
       const querySnapshot = await getDocs(collection(db, 'warnings'))
       querySnapshot.forEach((doc) => {
-        let data = doc.data()
-        data = { ...data, id: doc.id }
-        dispatch(initWarnings(data))
+        let obj = doc.data()
+        obj = { ...obj, id: doc.id }
+        payload.push(obj)
       })
+      dispatch(updateWarnings(payload))
     })()
   }, [])
 

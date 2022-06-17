@@ -9,11 +9,14 @@ const Warnings = () => {
   return (
     <Container>
       {warnings.warnings.map((warning) => (
-        <p key={warning.id}>
-          {warning.title}
-          {warning.message}
-          {warning.id}
-        </p>
+        <div key={warning.id}>
+          <p>title: {warning.title}</p>
+          <p>message: {warning.message}</p>
+          <p>id: {warning.id}</p>
+          <br />
+          <br />
+          <br />
+        </div>
       ))}
     </Container>
   )
