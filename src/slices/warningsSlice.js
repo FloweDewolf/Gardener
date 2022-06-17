@@ -16,12 +16,12 @@ const warningsSlice = createSlice({
       state.value.formValues.title = ''
       state.value.formValues.message = ''
     },
-    addWarning: (state) => {
+    addWarning: (state, action) => {
       state.value.warnings = [
         ...state.value.warnings,
         {
-          title: state.value.formValues.title,
-          message: state.value.formValues.message,
+          title: action.payload.title,
+          message: action.payload.message,
         },
       ]
     },
