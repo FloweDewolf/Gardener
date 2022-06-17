@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { changeFormValues, clearForm, addWarning } from 'slices/warningsSlice'
+import { changeFormValue, clearForm, initWarnings } from 'slices/warningsSlice'
 
 import { InputWrapper, StyledButton, StyledForm } from './Warn.styles'
 
@@ -10,12 +10,12 @@ const Warn = () => {
 
   const handleSubmitInWarn = (e) => {
     e.preventDefault()
-    dispatch(addWarning(e.target.value))
+    dispatch(initWarnings(e.target.value))
     dispatch(clearForm())
   }
 
   const handleChangeInWarn = ({ target }) => {
-    dispatch(changeFormValues({ id: target.id, value: target.value }))
+    dispatch(changeFormValue({ id: target.id, value: target.value }))
   }
 
   return (

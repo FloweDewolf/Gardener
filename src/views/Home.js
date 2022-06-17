@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
+import { useDispatch, useSelector } from 'react-redux'
+import { initWarnings } from 'slices/warningsSlice'
+
 import Template from 'components/Template'
+
 import { collection, getDocs } from '@firebase/firestore'
-
 import { db } from '../firebase'
-
-import { addWarning } from '../slices/warningsSlice'
 
 import Warnings from './Warnings'
 import Warn from './Warn'
@@ -27,7 +27,7 @@ const Home = () => {
     ;(async () => {
       const querySnapshot = await getDocs(collection(db, 'warnings'))
       querySnapshot.forEach((doc) => {
-        dispatch(addWarning(doc.data()))
+        dispatch(initWarnings(doc.data()))
       })
     })()
   }, [])
