@@ -4,7 +4,7 @@ import { setInput, clearInputs, setIsAuth } from 'slices/authSlice'
 
 import { useLocation, useNavigate, Link } from 'react-router-dom'
 
-import { ToastContainer, toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import {
@@ -147,18 +147,6 @@ const AuthForm = () => {
           </p>
         </Link>
       </StyledFormWrapper>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        toastStyle={{ backgroundColor: '#0a2e36', color: 'whitesmoke' }}
-      />
     </Container>
   )
 }
