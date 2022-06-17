@@ -1,6 +1,9 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { changeFormValue, clearForm, initWarnings } from 'slices/warningsSlice'
+import { changeFormValue, clearForm, addWarning } from 'slices/warningsSlice'
+
+import { collection, addDoc } from 'firebase/firestore'
+import { db } from '../firebase'
 
 import { InputWrapper, StyledButton, StyledForm } from './Warn.styles'
 
@@ -10,8 +13,14 @@ const Warn = () => {
 
   const handleSubmitInWarn = (e) => {
     e.preventDefault()
-    dispatch(initWarnings(e.target.value))
+    dispatch(addWarning())
     dispatch(clearForm())
+    ;(async () => {
+      await addDoc(collection(db, 'warnings'), {
+        title: warnings.formValues.title,
+        message: warnings.formValues.message,
+      })
+    })()
   }
 
   const handleChangeInWarn = ({ target }) => {
