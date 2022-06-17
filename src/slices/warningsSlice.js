@@ -26,20 +26,10 @@ const warningsSlice = createSlice({
         },
       ]
     },
-    addWarning: (state) => {
-      state.value.warnings = [
-        ...state.value.warnings,
-        {
-          title: state.value.formValues.title,
-          message: state.value.formValues.message,
-          id: state.value.formValues.id,
-        },
-      ]
-    },
   },
 })
 
-export const { changeFormValue, clearForm, initWarnings, addWarning } =
+export const { changeFormValue, clearForm, initWarnings } =
   warningsSlice.actions
 
 export default warningsSlice.reducer
