@@ -5,7 +5,12 @@ import { changeFormValue, clearForm, addWarning } from 'slices/warningsSlice'
 import { collection, addDoc } from 'firebase/firestore'
 import { db } from '../firebase'
 
-import { InputWrapper, StyledButton, StyledForm } from './Warn.styles'
+import {
+  Container,
+  StyledForm,
+  InputWrapper,
+  StyledButton,
+} from './Warn.styles'
 
 const Warn = () => {
   const warnings = useSelector((state) => state.warnings.value)
@@ -28,35 +33,37 @@ const Warn = () => {
   }
 
   return (
-    <StyledForm onSubmit={handleSubmitInWarn}>
-      <InputWrapper>
-        <input
-          onChange={handleChangeInWarn}
-          value={warnings.formValues.title}
-          id="title"
-          type="text"
-          className="input"
-          placeholder=" "
-        />
-        <label htmlFor="title" className="label">
-          Title
-        </label>
-      </InputWrapper>
-      <InputWrapper>
-        <input
-          onChange={handleChangeInWarn}
-          value={warnings.formValues.message}
-          id="message"
-          type="text"
-          className="input"
-          placeholder=" "
-        />
-        <label htmlFor="message" className="label">
-          Message
-        </label>
-      </InputWrapper>
-      <StyledButton type="submit">ADD</StyledButton>
-    </StyledForm>
+    <Container>
+      <StyledForm onSubmit={handleSubmitInWarn}>
+        <InputWrapper>
+          <input
+            onChange={handleChangeInWarn}
+            value={warnings.formValues.title}
+            id="title"
+            type="text"
+            className="input"
+            placeholder=" "
+          />
+          <label htmlFor="title" className="label">
+            Title
+          </label>
+        </InputWrapper>
+        <InputWrapper>
+          <input
+            onChange={handleChangeInWarn}
+            value={warnings.formValues.message}
+            id="message"
+            type="text"
+            className="input"
+            placeholder=" "
+          />
+          <label htmlFor="message" className="label">
+            Message
+          </label>
+        </InputWrapper>
+        <StyledButton type="submit">ADD</StyledButton>
+      </StyledForm>
+    </Container>
   )
 }
 

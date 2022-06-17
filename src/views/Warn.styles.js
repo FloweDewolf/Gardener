@@ -1,15 +1,23 @@
 import styled from 'styled-components'
 
+export const Container = styled.div`
+  width: 100%;
+  display: grid;
+  //justify-content: center;
+  grid-template-columns: repeat(10, 1fr);
+`
+
 export const StyledForm = styled.form`
+  grid-column: 2 / 6;
   margin-top: 150px;
-  width: 75%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 `
 
 export const InputWrapper = styled.div`
-  width: 50%;
+  width: 100%;
   position: relative;
 
   :first-child {
@@ -47,15 +55,15 @@ export const InputWrapper = styled.div`
 `
 
 export const StyledButton = styled.button`
-  margin-top: 20px;
+  margin-top: 35px;
   font-size: ${({ theme }) => theme.fontSize.s};
   display: flex;
-  justify-content: center;
+  align-self: start;
   position: relative;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  transition: width 2s linear;
+  transition: padding-right 0.2s ease-in-out;
   color: ${({ theme }) => theme.colors.gray};
 
   ::before {
@@ -65,14 +73,14 @@ export const StyledButton = styled.button`
     height: 1px;
     width: 100%;
     background-color: ${({ theme }) => theme.colors.gray};
-    transition: width 0.2s ease-in-out;
   }
 
   :hover {
+    padding-right: calc(100% - 52.875px);
+    color: ${({ theme }) => theme.colors.white};
+
     ::before {
-      width: 100px;
       color: ${({ theme }) => theme.colors.white};
     }
-    color: ${({ theme }) => theme.colors.white};
   }
 `
