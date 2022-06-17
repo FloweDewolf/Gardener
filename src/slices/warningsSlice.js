@@ -4,7 +4,7 @@ const warningsSlice = createSlice({
   name: 'warnings',
   initialState: {
     value: {
-      formValues: { title: '', message: '' },
+      formValues: { title: '', message: '', id: '' },
       warnings: [],
     },
   },
@@ -22,6 +22,7 @@ const warningsSlice = createSlice({
         {
           title: action.payload.title,
           message: action.payload.message,
+          id: action.payload.id,
         },
       ]
     },
@@ -31,6 +32,7 @@ const warningsSlice = createSlice({
         {
           title: state.value.formValues.title,
           message: state.value.formValues.message,
+          id: state.value.formValues.id,
         },
       ]
     },
