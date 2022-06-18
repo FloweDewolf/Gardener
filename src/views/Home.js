@@ -28,9 +28,7 @@ const Home = () => {
       const payload = []
       const querySnapshot = await getDocs(collection(db, 'warnings'))
       querySnapshot.forEach((doc) => {
-        let obj = doc.data()
-        obj = { ...obj, id: doc.id }
-        payload.push(obj)
+        payload.push({ ...doc.data(), id: doc.id })
       })
       dispatch(updateWarnings(payload))
     })()
