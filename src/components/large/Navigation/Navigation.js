@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { setIsAuth } from 'slices/authSlice'
 
+import { toast } from 'react-toastify'
 import { StyledNav } from './Navigation.styles'
 
 const Navigation = () => {
@@ -11,6 +12,16 @@ const Navigation = () => {
   const handleLogout = () => {
     sessionStorage.removeItem('Auth Token')
     dispatch(setIsAuth())
+
+    toast.error('Logged out', {
+      position: 'bottom-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    })
   }
 
   return (
