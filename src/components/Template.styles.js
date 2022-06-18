@@ -13,16 +13,16 @@ export const BlobContainer = styled.div`
   fill: ${({ theme }) => theme.colors.dark};
   width: 50vmax;
   z-index: -2;
-  animation: move 10s linear infinite;
+  animation: move 15s linear infinite;
   transform-origin: 50% 50%;
 
   @keyframes move {
     from {
-      transform: scale(2.3) rotate(0deg);
+      transform: translateY(30%) translateX(-20%) scale(3) rotate(0deg);
     }
 
     to {
-      transform: scale(2.3) rotate(360deg);
+      transform: translateY(30%) translateX(-20%) scale(3) rotate(360deg);
     }
   }
 `
