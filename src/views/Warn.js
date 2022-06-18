@@ -22,7 +22,8 @@ const Warn = () => {
     e.preventDefault()
     dispatch(clearForm())
     ;(async () => {
-      await addDoc(collection(db, 'warnings'), {
+      const colRef = collection(db, 'warnings')
+      await addDoc(colRef, {
         title: warnings.formValues.title,
         message: warnings.formValues.message,
         createdAt: serverTimestamp(),
