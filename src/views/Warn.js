@@ -74,7 +74,9 @@ const Warn = () => {
             Message
           </label>
         </InputWrapper>
-        <StyledButton type="submit">ADD</StyledButton>
+        <StyledButton type="submit">
+          ADD <span>WARNING</span>
+        </StyledButton>
       </StyledForm>
     </Container>
   )

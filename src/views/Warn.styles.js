@@ -66,6 +66,12 @@ export const StyledButton = styled.button`
   color: ${({ theme }) => theme.colors.gray};
   transition: all 0.2s ease-in-out;
 
+  span {
+    position: absolute;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+  }
+
   ::before {
     content: '';
     position: absolute;
@@ -78,10 +84,15 @@ export const StyledButton = styled.button`
   :hover {
     padding-right: calc(100% - 84.6094px);
     color: ${({ theme }) => theme.colors.white};
-    text-shadow: 100px 0 1px #d2d2db;
 
     ::before {
       color: ${({ theme }) => theme.colors.white};
+    }
+
+    span {
+      opacity: 1;
+      color: ${({ theme: { colors } }) => colors.gray};
+      transform: translateX(100px);
     }
   }
 `
