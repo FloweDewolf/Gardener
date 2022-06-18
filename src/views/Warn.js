@@ -1,15 +1,10 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  changeFormValue,
-  clearForm,
-  updateWarnings,
-} from 'slices/warningsSlice'
+import { changeFormValue, clearForm } from 'slices/warningsSlice'
 
 import { toast } from 'react-toastify'
 
 import { collection, addDoc } from 'firebase/firestore'
-import { getDocs } from '@firebase/firestore'
 import { db } from '../firebase'
 
 import {
@@ -32,15 +27,7 @@ const Warn = () => {
         message: warnings.formValues.message,
       })
     })()
-    ;(async () => {
-      const payload = []
-      const querySnapshot = await getDocs(collection(db, 'warnings'))
-      console.log(querySnapshot)
-      querySnapshot.forEach((doc) => {
-        payload.push({ ...doc.data(), id: doc.id })
-      })
-      dispatch(updateWarnings(payload))
-    })()
+
     toast.success('Warning was added', {
       position: 'bottom-right',
       autoClose: 5000,
