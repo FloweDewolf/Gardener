@@ -59,6 +59,10 @@ export const SingleWarning = styled.div`
   overflow-x: hidden;
   padding: 10px;
 
+  h2 {
+    cursor: pointer;
+  }
+
   h2,
   p {
     text-overflow: ellipsis;

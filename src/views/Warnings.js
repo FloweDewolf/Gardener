@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
+
+import WarningDetails from 'components/medium/WarningDetails'
 
 import { doc, deleteDoc } from 'firebase/firestore'
 import { db } from '../firebase'
@@ -12,7 +14,13 @@ import {
   StyledUl,
 } from './Warnings.styles'
 
+import Modal from '../components/large/Modal/Modal'
+import useModal from '../components/large/Modal/useModal'
+
 const Warnings = () => {
+  const [currentWarning, setCurrentWarning] = useState({})
+  const { isOpen, handleOpenModal, handleCloseModal } = useModal()
+
   const warnings = useSelector((state) => state.warnings.value)
 
   const handleDeleteOne = async (id) => {
@@ -27,8 +35,16 @@ const Warnings = () => {
     })
   }
 
+  const handleOpenWarningDetails = (passedWarning) => {
+    setCurrentWarning(passedWarning)
+    handleOpenModal()
+  }
+
   return (
     <OuterContainer>
+      <Modal isOpen={isOpen} handleClose={handleCloseModal}>
+        <WarningDetails warning={currentWarning} />
+      </Modal>
       <Container>
         <WarningsWrapper>
           {warnings.warnings.length ? (
@@ -36,7 +52,17 @@ const Warnings = () => {
               {warnings.warnings.map((warning) => (
                 <li key={warning.id}>
                   <SingleWarning>
-                    <h2>{warning.title}</h2>
+                    <h2
+                      onClick={() =>
+                        handleOpenWarningDetails({
+                          title: warning.title,
+                          message: warning.message,
+                          id: warning.id,
+                        })
+                      }
+                    >
+                      {warning.title}
+                    </h2>
                     <p>{warning.message}</p>
                   </SingleWarning>
                   <button
