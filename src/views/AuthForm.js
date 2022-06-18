@@ -40,81 +40,88 @@ const AuthForm = () => {
   const handleSubmitInAuthForm = (e) => {
     e.preventDefault()
 
-    if (location.pathname === '/login' || location.pathname === '/') {
-      signInWithEmailAndPassword(authentication, auth.email, auth.password)
-        .then((res) => {
-          // eslint-disable-next-line no-underscore-dangle
-          sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken)
-          dispatch(setIsAuth())
-          navigate('/home')
-          dispatch(clearInputs())
+    let isLoginPage = false
 
-          toast.success('Log in success', {
-            position: 'bottom-right',
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
+    const authPromise = new Promise((resolve, reject) => {
+      if (location.pathname === '/login' || location.pathname === '/') {
+        isLoginPage = true
+        signInWithEmailAndPassword(authentication, auth.email, auth.password)
+          .then((res) => {
+            resolve()
+            // eslint-disable-next-line no-underscore-dangle
+            sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken)
+            dispatch(setIsAuth())
+            navigate('/home')
+            dispatch(clearInputs())
           })
-        })
-        .catch((err) => {
-          if (err.code === 'auth/wrong-password') {
-            toast.error('Please check the Password!', {
-              position: 'bottom-right',
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            })
-          } else if (err.code === 'auth/user-not-found') {
-            toast.error('Please check the Email', {
-              position: 'bottom-right',
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            })
-          }
-        })
-    } else if (location.pathname === '/register') {
-      createUserWithEmailAndPassword(authentication, auth.email, auth.password)
-        .then((res) => {
-          // eslint-disable-next-line no-underscore-dangle
-          sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken)
-          dispatch(setIsAuth())
-          navigate('/home')
-          dispatch(clearInputs())
+          .catch((err) => {
+            reject()
+            if (err.code === 'auth/wrong-password') {
+              toast.error('Please check the Password!', {
+                position: 'bottom-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              })
+            } else if (err.code === 'auth/user-not-found') {
+              toast.error('Please check the Email', {
+                position: 'bottom-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              })
+            }
+          })
+      } else if (location.pathname === '/register') {
+        createUserWithEmailAndPassword(authentication, auth.email, auth.password)
+          .then((res) => {
+            resolve()
+            // eslint-disable-next-line no-underscore-dangle
+            sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken)
+            dispatch(setIsAuth())
+            navigate('/home')
+            dispatch(clearInputs())
+          })
+          .catch((err) => {
+            reject()
+            if (err.code === 'auth/email-already-in-use') {
+              toast.error('Email Already in Use', {
+                position: 'bottom-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+              })
+            }
+          })
+      }
+    })
 
-          toast.success('Sign in success', {
-            position: 'bottom-right',
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          })
-        })
-        .catch((err) => {
-          if (err.code === 'auth/email-already-in-use') {
-            toast.error('Email Already in Use', {
-              position: 'top-left',
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            })
-          }
-        })
-    }
+    toast.promise(
+      authPromise,
+      {
+        pending: `${isLoginPage ? 'Logging in...' : 'Registering in...'}`,
+        error: `${isLoginPage ? 'Login failed' : 'Registration failed'}`,
+        success: `${isLoginPage ? 'Login successful' : 'Registration successful'}`,
+      },
+      {
+        position: 'bottom-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }
+    )
   }
 
   const handleChangeInAuthForm = ({ target }) => {
@@ -128,11 +135,7 @@ const AuthForm = () => {
         <StyledForm onSubmit={handleSubmitInAuthForm}>
           <label>
             Email
-            <input
-              type="email"
-              onChange={handleChangeInAuthForm}
-              value={auth.email}
-            />
+            <input type="email" onChange={handleChangeInAuthForm} value={auth.email} />
           </label>
           <label>
             Password
