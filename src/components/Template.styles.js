@@ -6,14 +6,14 @@ export const Container = styled.div`
   flex-direction: column;
 `
 
-export const Blob = styled.div`
+export const BlobContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   fill: ${({ theme }) => theme.colors.dark};
   width: 50vmax;
   z-index: -2;
-  animation: move 6s linear infinite;
+  animation: move 10s linear infinite;
   transform-origin: 50% 50%;
 
   @keyframes move {
