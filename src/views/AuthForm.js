@@ -49,7 +49,10 @@ const AuthForm = () => {
           .then((res) => {
             resolve()
             // eslint-disable-next-line no-underscore-dangle
-            sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken)
+            sessionStorage.setItem(
+              'Auth Token',
+              res._tokenResponse.refreshToken
+            )
             dispatch(setIsAuth())
             navigate('/home')
             dispatch(clearInputs())
@@ -79,11 +82,18 @@ const AuthForm = () => {
             }
           })
       } else if (location.pathname === '/register') {
-        createUserWithEmailAndPassword(authentication, auth.email, auth.password)
+        createUserWithEmailAndPassword(
+          authentication,
+          auth.email,
+          auth.password
+        )
           .then((res) => {
             resolve()
             // eslint-disable-next-line no-underscore-dangle
-            sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken)
+            sessionStorage.setItem(
+              'Auth Token',
+              res._tokenResponse.refreshToken
+            )
             dispatch(setIsAuth())
             navigate('/home')
             dispatch(clearInputs())
@@ -110,7 +120,9 @@ const AuthForm = () => {
       {
         pending: `${isLoginPage ? 'Logging in...' : 'Registering in...'}`,
         error: `${isLoginPage ? 'Login failed' : 'Registration failed'}`,
-        success: `${isLoginPage ? 'Login successful' : 'Registration successful'}`,
+        success: `${
+          isLoginPage ? 'Login successful' : 'Registration successful'
+        }`,
       },
       {
         position: 'bottom-right',
@@ -135,7 +147,11 @@ const AuthForm = () => {
         <StyledForm onSubmit={handleSubmitInAuthForm}>
           <label>
             Email
-            <input type="email" onChange={handleChangeInAuthForm} value={auth.email} />
+            <input
+              type="email"
+              onChange={handleChangeInAuthForm}
+              value={auth.email}
+            />
           </label>
           <label>
             Password
