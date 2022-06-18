@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import Template from 'components/Template'
 
-import { collection, onSnapshot } from '@firebase/firestore'
+import { collection, onSnapshot, orderBy, query } from '@firebase/firestore'
 import { db } from '../firebase'
 
 import { updateWarnings } from '../slices/warningsSlice'
@@ -26,7 +26,9 @@ const Home = () => {
 
   useEffect(() => {
     ;(async () => {
-      onSnapshot(collection(db, 'warnings'), (snapshot) => {
+      const colRef = collection(db, 'warnings')
+      const q = query(colRef, orderBy('createdAt'))
+      onSnapshot(q, (snapshot) => {
         const warnings = []
         snapshot.docs.forEach((doc) => {
           warnings.push({ ...doc.data(), id: doc.id })

@@ -4,7 +4,7 @@ import { changeFormValue, clearForm } from 'slices/warningsSlice'
 
 import { toast } from 'react-toastify'
 
-import { collection, addDoc } from 'firebase/firestore'
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../firebase'
 
 import {
@@ -25,6 +25,7 @@ const Warn = () => {
       await addDoc(collection(db, 'warnings'), {
         title: warnings.formValues.title,
         message: warnings.formValues.message,
+        createdAt: serverTimestamp(),
       })
     })()
 
