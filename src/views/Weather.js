@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { Container, SearchWrapper } from './Weather.styles'
+import { setLocation } from '../slices/locationReducer'
 
 const Weather = () => {
   const dispatch = useDispatch()
@@ -9,7 +10,16 @@ const Weather = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch()
+
+    const API_KEY = `6c8ae35c71e4480ea962d024925725ff`
+    const API = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`
+    fetch(API)
+      .then((res) => res.json())
+      .then((res) => {
+        const { lat, lon } = res[0]
+        dispatch(setLocation({ lat, lon }))
+      })
+
     setCity('')
   }
 
