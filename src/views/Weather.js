@@ -44,11 +44,11 @@ const Weather = () => {
           </form>
         </div>
       </SearchWrapper>
-      <p>Feels like {weather.main.feels_like}°C</p>
-      <p>Min {weather.main.temp_min}°C</p>
-      <p>Max {weather.main.temp_max}°C</p>
+      <p>Feels like {Math.floor(weather.main.feels_like)}°C</p>
+      <p>Min {Math.floor(weather.main.temp_min)}°C</p>
+      <p>Max {Math.floor(weather.main.temp_max)}°C</p>
       <p>Pressure {weather.main.pressure} hPa</p>
-      <p>Wind speed {weather.wind.speed * 3.6} km/h</p>
+      <p>Wind speed {Math.floor(weather.wind.speed * 3.6)} km/h</p>
       <p>Humidity {weather.main.humidity}%</p>
       <img
         src={`http://openweathermap.org/img/wn/${`${String(
