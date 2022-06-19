@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setInput, clearInputs, setIsAuth } from 'slices/authSlice'
+import { setLocation } from 'slices/locationReducer'
 
 import { useLocation, useNavigate, Link } from 'react-router-dom'
 
@@ -35,6 +36,17 @@ const AuthForm = () => {
     if (auth.isAuth.value) {
       navigate('/login')
     }
+  }, [])
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      dispatch(
+        setLocation({
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+        })
+      )
+    })
   }, [])
 
   const handleSubmitInAuthForm = (e) => {
