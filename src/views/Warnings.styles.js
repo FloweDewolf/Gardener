@@ -55,6 +55,7 @@ export const StyledUl = styled.ul`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: 0.3s ease-in;
 
     button {
       font-size: 25px;
