@@ -13,6 +13,17 @@ export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  animation: warnForm 0.38s cubic-bezier(0.09, 0.66, 0.36, 1.4);
+
+  @keyframes warnForm {
+    from {
+      transform: translateX(-1500px);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
 `
 
 export const InputWrapper = styled.div`
