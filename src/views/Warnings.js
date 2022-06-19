@@ -48,32 +48,35 @@ const Warnings = () => {
       <Container>
         <WarningsWrapper>
           {warnings.warnings.length ? (
-            <StyledUl>
-              {warnings.warnings.map((warning) => (
-                <li key={warning.id}>
-                  <SingleWarning>
-                    <h2
-                      onClick={() =>
-                        handleOpenWarningDetails({
-                          title: warning.title,
-                          message: warning.message,
-                          id: warning.id,
-                        })
-                      }
+            <>
+              <h3>Warnings</h3>
+              <StyledUl>
+                {warnings.warnings.map((warning) => (
+                  <li key={warning.id}>
+                    <SingleWarning>
+                      <h2
+                        onClick={() =>
+                          handleOpenWarningDetails({
+                            title: warning.title,
+                            message: warning.message,
+                            id: warning.id,
+                          })
+                        }
+                      >
+                        {warning.title}
+                      </h2>
+                      <p>{warning.message}</p>
+                    </SingleWarning>
+                    <button
+                      type="button"
+                      onClick={() => handleDeleteOne(warning.id)}
                     >
-                      {warning.title}
-                    </h2>
-                    <p>{warning.message}</p>
-                  </SingleWarning>
-                  <button
-                    type="button"
-                    onClick={() => handleDeleteOne(warning.id)}
-                  >
-                    ❌
-                  </button>
-                </li>
-              ))}
-            </StyledUl>
+                      ❌
+                    </button>
+                  </li>
+                ))}
+              </StyledUl>
+            </>
           ) : (
             <h3>No warnings</h3>
           )}
