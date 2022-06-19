@@ -18,11 +18,10 @@ export const StyledForm = styled.form`
 
   @keyframes warnForm {
     from {
-      //transform: translateX(-1000px);
-      transform: scale(0);
+      opacity: 0;
     }
     to {
-      transform: scale(1);
+      opacity: 1;
     }
   }
 `
