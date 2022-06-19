@@ -14,14 +14,15 @@ export const StyledForm = styled.form`
   flex-direction: column;
   align-items: center;
 
-  animation: warnForm 0.38s cubic-bezier(0.09, 0.66, 0.36, 1.4);
+  animation: warnForm 0.3s cubic-bezier(0, 0, 0.35, 1);
 
   @keyframes warnForm {
     from {
-      transform: translateX(-1500px);
+      //transform: translateX(-1000px);
+      transform: scale(0);
     }
     to {
-      transform: translateX(0);
+      transform: scale(1);
     }
   }
 `
