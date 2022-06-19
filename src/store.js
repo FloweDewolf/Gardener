@@ -11,4 +11,10 @@ export default configureStore({
     location: locationReducer,
     weather: weatherSlice,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActionPaths: ['payload.0.createdAt'],
+      },
+    }),
 })
