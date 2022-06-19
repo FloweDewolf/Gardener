@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { setLocation } from 'slices/locationReducer'
 
 import { Container, SearchWrapper } from './Weather.styles'
-import { setLocation } from '../slices/locationReducer'
 
 const Weather = () => {
+  const weather = useSelector((state) => state.weather.value)
   const dispatch = useDispatch()
   const [city, setCity] = useState('')
 
@@ -27,7 +28,6 @@ const Weather = () => {
     setCity(e.target.value)
   }
 
-  const weather = useSelector((state) => state.weather.value)
   return (
     <Container>
       <SearchWrapper>
