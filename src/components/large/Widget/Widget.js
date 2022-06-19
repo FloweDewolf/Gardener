@@ -76,27 +76,9 @@ const Widget = () => {
               }`}
             </span>
             <img
-              src={`http://openweathermap.org/img/wn/${
-                data.weather[0].description === 'clear sky'
-                  ? '01n'
-                  : data.weather[0].description === 'few clouds'
-                  ? '02n'
-                  : data.weather[0].description === 'scattered clouds'
-                  ? '03n'
-                  : data.weather[0].description === 'broken clouds'
-                  ? '04n'
-                  : data.weather[0].description === 'shower rain'
-                  ? '09n'
-                  : data.weather[0].description === 'rain'
-                  ? '10n'
-                  : data.weather[0].description === 'thunderstorm'
-                  ? '11n'
-                  : data.weather[0].description === 'snow'
-                  ? '13n'
-                  : data.weather[0].description === 'mist'
-                  ? '50n'
-                  : ''
-              }@2x.png`}
+              src={`http://openweathermap.org/img/wn/${`${String(
+                data.weather[0].icon
+              ).slice(0, -1)}n`}@2x.png`}
               alt=""
             />
           </MiniWeather>
