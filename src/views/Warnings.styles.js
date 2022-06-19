@@ -11,6 +11,17 @@ export const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, 50px);
   grid-template-rows: repeat(20, 50px);
+
+  animation: entry 0.3s ease-in-out;
+
+  @keyframes entry {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
 `
 
 export const WarningsWrapper = styled.div`
