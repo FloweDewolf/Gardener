@@ -62,6 +62,16 @@ export const StyledUl = styled.ul`
       border: none;
       background-color: ${({ theme: { colors } }) => colors.white};
       cursor: pointer;
+      animation: slideInLeft 0.5s cubic-bezier(1, 0, 0.45, 1.92);
+
+      @keyframes slideInLeft {
+        from {
+          transform: translateX(200px);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
     }
   }
 `
