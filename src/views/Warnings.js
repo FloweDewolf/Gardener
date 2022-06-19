@@ -67,7 +67,7 @@ const Warnings = () => {
         <WarningsWrapper>
           {warnings.warnings.length ? (
             <>
-              <h3>Warnings</h3>
+              <h3>Warnings ⚠️</h3>
               <StyledUl>
                 {warnings.warnings.map((warning) => (
                   <li
@@ -101,7 +101,7 @@ const Warnings = () => {
               </StyledUl>
             </>
           ) : (
-            <h3>No warnings</h3>
+            <h3>No warnings ⚠️</h3>
           )}
         </WarningsWrapper>
         <StyledButton onClick={handleDeleteAll}>Delete all</StyledButton>
