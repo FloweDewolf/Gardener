@@ -75,12 +75,6 @@ const Widget = () => {
                 data.weather[0].description
               }`}
             </span>
-            <img
-              src={`http://openweathermap.org/img/wn/${`${String(
-                data.weather[0].icon
-              ).slice(0, -1)}n`}@2x.png`}
-              alt=""
-            />
           </MiniWeather>
         ) : null}
       </ContentContainer>
