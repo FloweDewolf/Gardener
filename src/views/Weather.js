@@ -11,7 +11,7 @@ const Weather = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    const API_KEY = `6c8ae35c71e4480ea962d024925725ff`
+    const API_KEY = process.env.REACT_APP_WEATHER_API
     const API = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`
     fetch(API)
       .then((res) => res.json())
