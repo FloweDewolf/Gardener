@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 import AuthForm from './views/AuthForm'
-import Home from './views/Home'
+import App from './views/App'
 
 const Root = () => {
   const isAuth = useSelector((state) => state.auth.value.isAuth)
@@ -11,14 +11,13 @@ const Root = () => {
 
   useEffect(() => {
     if (isAuth) {
-      navigate('home')
+      navigate('/home')
     }
   }, [isAuth])
 
   return (
     <Routes>
-      <Route path="/home/*" element={<Home />} />
-      <Route path="/" element={<AuthForm />} />
+      <Route path="/*" element={<App />} />
       <Route path="/login" element={<AuthForm />} />
       <Route path="/register" element={<AuthForm />} />
     </Routes>

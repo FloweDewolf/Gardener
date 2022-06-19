@@ -32,12 +32,12 @@ const Navigation = () => {
         </li>
         <li>
           <div>
-            <Link to="/home/warn">Warn</Link>
-            <Link to="/home/warnings">ings</Link>
+            <Link to="/warn">Warn</Link>
+            <Link to="/warnings">ings</Link>
           </div>
         </li>
         <li>
-          <Link to="/home/weather">Weather</Link>
+          <Link to="/weather">Weather</Link>
         </li>
         <li>
           <Link to="/login" onClick={handleLogout}>

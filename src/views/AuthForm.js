@@ -54,37 +54,33 @@ const AuthForm = () => {
         signInWithEmailAndPassword(authentication, auth.email, auth.password)
           .then((res) => {
             resolve()
-            // eslint-disable-next-line no-underscore-dangle
             sessionStorage.setItem(
               'Auth Token',
               res._tokenResponse.refreshToken
             )
             dispatch(setIsAuth())
-            navigate('/dashboard')
+            navigate('/home')
             dispatch(clearInputs())
           })
           .catch((err) => {
             reject()
-            if (err.code === 'auth/wrong-password') {
-              toast.error('Please check the Password!', {
-                position: 'bottom-right',
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-              })
-            } else if (err.code === 'auth/user-not-found') {
-              toast.error('Please check the Email', {
-                position: 'bottom-right',
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-              })
+            if (err.code === 'auth/wrong-password' || 'auth/user-not-found') {
+              toast.error(
+                `${
+                  err.code === 'auth/wrong-password'
+                    ? 'Please check the Password!'
+                    : 'Please check the Email'
+                }`,
+                {
+                  position: 'bottom-right',
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                }
+              )
             }
           })
       } else if (location.pathname === '/register') {
@@ -101,7 +97,7 @@ const AuthForm = () => {
               res._tokenResponse.refreshToken
             )
             dispatch(setIsAuth())
-            navigate('/dashboard')
+            navigate('/home')
             dispatch(clearInputs())
           })
           .catch((err) => {
