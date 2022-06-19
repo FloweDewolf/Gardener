@@ -23,18 +23,20 @@ export const ModalWrapper = styled(ReactModal)`
     outline: none;
   }
 
+  h1 {
+    inline-size: 600px;
+    overflow-wrap: break-word;
+    text-align: center;
+    font-size: 50px;
+  }
+
   p {
     margin-top: 25px;
     flex-grow: 1;
     inline-size: 600px;
     block-size: 200px;
     overflow-wrap: break-word;
-  }
-
-  h1 {
-    inline-size: 600px;
-    overflow-wrap: break-word;
-    text-align: center;
+    font-size: 20px;
   }
 `
 
