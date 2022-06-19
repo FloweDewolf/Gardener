@@ -33,12 +33,6 @@ const AuthForm = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (auth.isAuth.value) {
-      navigate('/login')
-    }
-  }, [])
-
-  useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       dispatch(
         setLocation({
@@ -66,7 +60,7 @@ const AuthForm = () => {
               res._tokenResponse.refreshToken
             )
             dispatch(setIsAuth())
-            navigate('/home')
+            navigate('/dashboard')
             dispatch(clearInputs())
           })
           .catch((err) => {
@@ -107,7 +101,7 @@ const AuthForm = () => {
               res._tokenResponse.refreshToken
             )
             dispatch(setIsAuth())
-            navigate('/home')
+            navigate('/dashboard')
             dispatch(clearInputs())
           })
           .catch((err) => {
