@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { setWeather } from 'slices/weatherSlice'
+
 import {
   Container,
   WidgetHandler,
@@ -8,14 +10,15 @@ import {
 } from './Widget.styles'
 
 const Widget = () => {
+  const dispatch = useDispatch()
+
   const location = useSelector((state) => state.location.value)
+  const data = useSelector((state) => state.weather.value)
 
   const [isOpen, setIsOpen] = useState(false)
 
   const [time, setTime] = useState('')
   const [timeSession, setTimeSession] = useState('AM')
-
-  const [data, setData] = useState([])
 
   const currentTime = () => {
     const date = new Date()
@@ -46,7 +49,7 @@ const Widget = () => {
       await fetch(API)
         .then((res) => res.json())
         .then((res) => {
-          setData(res)
+          dispatch(setWeather(res))
         })
     })()
   }, [location.lat, location.lon])
