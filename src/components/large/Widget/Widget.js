@@ -31,7 +31,7 @@ const Widget = () => {
     }
     if (hh > 12) {
       setTimeSession('PM')
-      hh = Math.floor(date.getHours() / 12)
+      hh = Math.floor(date.getHours() - 12)
     }
 
     hh = hh < 10 ? `0${hh}` : hh
