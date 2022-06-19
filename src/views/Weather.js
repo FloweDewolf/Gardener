@@ -1,41 +1,39 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import styled from 'styled-components'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-const Container = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 700px;
-  align-items: start;
-  padding: 25px;
-  margin: 100px 25px;
-  background-color: ${({ theme: { colors } }) => colors.white};
-  border-radius: 25px;
-  font-size: 25px;
-  animation: entry 0.3s ease-in-out;
-
-  img {
-    position: absolute;
-    right: 0;
-  }
-
-  @keyframes entry {
-    from {
-      transform: scale(0);
-    }
-    to {
-      transform: scale(1);
-    }
-  }
-`
+import { Container, SearchWrapper } from './Weather.styles'
 
 const Weather = () => {
+  const dispatch = useDispatch()
+  const [city, setCity] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    dispatch()
+    setCity('')
+  }
+
+  const handleChangeInWeather = (e) => {
+    setCity(e.target.value)
+  }
+
   const weather = useSelector((state) => state.weather.value)
-  console.log(weather)
   return (
     <Container>
-      <h2>Weather in {weather.name}</h2>
+      <SearchWrapper>
+        <h2>Weather in</h2>
+        <div>
+          <form onSubmit={handleSubmit}>
+            <input
+              placeholder={weather.name}
+              type="text"
+              onChange={handleChangeInWeather}
+              value={city}
+            />
+            <button type="submit">🔍</button>
+          </form>
+        </div>
+      </SearchWrapper>
       <p>Feels like {weather.main.feels_like}°C</p>
       <p>Min {weather.main.temp_min}°C</p>
       <p>Max {weather.main.temp_max}°C</p>
