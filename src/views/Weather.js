@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setLocation } from 'slices/locationReducer'
 import { useNavigate } from 'react-router-dom'
@@ -9,9 +9,11 @@ const Weather = () => {
   const weather = useSelector((state) => state.weather.value)
   const dispatch = useDispatch()
   const [city, setCity] = useState('')
+  const ref = useRef(null)
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    ref.current.placeholder = ''
 
     const API_KEY = process.env.REACT_APP_WEATHER_API
     const API = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`
@@ -37,6 +39,7 @@ const Weather = () => {
           <div>
             <form onSubmit={handleSubmit}>
               <input
+                ref={ref}
                 placeholder={weather.name}
                 type="text"
                 onChange={handleChangeInWeather}
