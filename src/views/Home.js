@@ -32,7 +32,7 @@ const Home = () => {
         <h2>Hello! What&apos;s up?</h2>
         <p>There is 5 warnings to look</p>
         <LinksWrapper>
-          <Link to="/weather">Check the warnings ⚠️</Link>
+          <Link to="/warnings">Check the warnings ⚠️</Link>
           <Link to="/weather">Check the weather 🌧️</Link>
         </LinksWrapper>
       </StyledWrapper>
