@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setInput, clearInputs, setIsAuth } from 'slices/authSlice'
 import { setLocation } from 'slices/locationReducer'
@@ -31,6 +31,7 @@ const AuthForm = () => {
   const authentication = getAuth()
   const auth = useSelector((state) => state.auth.value)
   const dispatch = useDispatch()
+  const buttonRef = useRef(null)
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -45,6 +46,7 @@ const AuthForm = () => {
 
   const handleSubmitInAuthForm = (e) => {
     e.preventDefault()
+    buttonRef.current.classList.add('button')
 
     let isLoginPage = false
 
@@ -63,6 +65,7 @@ const AuthForm = () => {
             dispatch(clearInputs())
           })
           .catch((err) => {
+            buttonRef.current.classList.remove('button')
             reject()
             if (err.code === 'auth/wrong-password' || 'auth/user-not-found') {
               toast.error(
@@ -91,7 +94,6 @@ const AuthForm = () => {
         )
           .then((res) => {
             resolve()
-            // eslint-disable-next-line no-underscore-dangle
             sessionStorage.setItem(
               'Auth Token',
               res._tokenResponse.refreshToken
@@ -101,6 +103,7 @@ const AuthForm = () => {
             dispatch(clearInputs())
           })
           .catch((err) => {
+            buttonRef.current.classList.remove('button')
             reject()
             if (err.code === 'auth/email-already-in-use') {
               toast.error('Email Already in Use', {
@@ -164,6 +167,7 @@ const AuthForm = () => {
             />
           </label>
           <StyledButton
+            ref={buttonRef}
             type="submit"
             backgroundColor="white"
             color="${({ theme })} => theme.colors.dark"

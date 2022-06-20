@@ -64,4 +64,10 @@ export const StyledForm = styled.form`
 
 export const StyledButton = styled(Button)`
   margin-top: 40px;
+
+  &.button {
+    background-color: ${({ theme: { colors } }) => colors.green};
+    color: ${(props) =>
+      props.hoverColor ? props.hoverColor : props.theme.colors.dark};
+  }
 `
