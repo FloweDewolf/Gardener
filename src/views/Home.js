@@ -2,10 +2,18 @@ import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import useModal from 'components/large/Modal/useModal'
-
 import Modal from 'components/large/Modal/Modal'
 import WarningDetails from 'components/medium/WarningDetails'
-import { LastWarning, LinksWrapper, HelloWrapper } from './Home.styles'
+
+import GithubLogo from 'assets/github.png'
+import LinkedInLogo from 'assets/linkedin.png'
+
+import {
+  LinksWrapper,
+  HelloWrapper,
+  LastWarning,
+  LackOfWarnings,
+} from './Home.styles'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -63,7 +71,30 @@ const Home = () => {
             <WarningDetails warning={currentWarning} />
           </Modal>
         </>
-      ) : null}
+      ) : (
+        <LackOfWarnings>
+          <div>
+            <h2>There are no warnings so...</h2>
+            <p>you can check my Github or LinkedIn 😇</p>
+          </div>
+          <div>
+            <a
+              href="https://github.com/FloweDewolf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={GithubLogo} alt="" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/mateusz-wilk-941a091b2/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src={LinkedInLogo} alt="" />
+            </a>
+          </div>
+        </LackOfWarnings>
+      )}
     </>
   )
 }

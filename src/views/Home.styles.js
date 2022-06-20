@@ -71,3 +71,18 @@ export const LastWarning = styled(Wrapper)`
     left: 25px;
   }
 `
+
+export const LackOfWarnings = styled(Wrapper)`
+  flex-direction: row;
+  margin: 50px;
+
+  div:last-child {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-evenly;
+    img {
+      height: 64px;
+      width: 64px;
+    }
+  }
+`
