@@ -6,7 +6,6 @@ export const HelloWrapper = styled(Wrapper)`
   height: 300px;
   margin: 100px 50px 0;
   font-size: 25px;
-  animation: entry 0.3s ease-in-out;
 
   p {
     text-decoration: underline;
@@ -33,18 +32,11 @@ export const LinksWrapper = styled.div`
   }
 `
 
-export const LastWarning = styled.div`
-  display: flex;
+export const LastWarning = styled(Wrapper)`
   position: relative;
-  width: 600px;
   height: 300px;
   margin: 50px;
-  padding: 25px;
-  flex-direction: column;
-  border-radius: 25px;
-  background-color: ${({ theme: { colors } }) => colors.white};
   font-size: 25px;
-  animation: entry 0.3s ease-in-out;
 
   div {
     flex-grow: 1;
