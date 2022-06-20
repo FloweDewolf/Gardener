@@ -13,8 +13,6 @@ export default configureStore({
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActionPaths: ['payload.0.createdAt'],
-      },
+      serializableCheck: false,
     }),
 })
