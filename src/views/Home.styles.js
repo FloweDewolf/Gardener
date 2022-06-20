@@ -1,17 +1,10 @@
 import styled from 'styled-components'
+import Wrapper from 'components/small/Wrapper'
 
-export const Container = styled.div``
-
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+export const StyledWrapper = styled(Wrapper)`
   position: relative;
-  width: 600px;
   height: 300px;
   margin: 100px 50px 0;
-  padding: 25px;
-  border-radius: 25px;
-  background-color: ${({ theme: { colors } }) => colors.white};
   font-size: 25px;
   animation: entry 0.3s ease-in-out;
 
