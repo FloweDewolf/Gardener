@@ -23,7 +23,9 @@ const Weather = () => {
         const { lat, lon } = res[0]
         dispatch(setLocation({ lat, lon }))
       })
-
+      .catch(() => {
+        ref.current.placeholder = weather.name
+      })
     setCity('')
   }
 
