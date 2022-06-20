@@ -14,7 +14,7 @@ const Weather = () => {
     e.preventDefault()
 
     const API_KEY = process.env.REACT_APP_WEATHER_API
-    const API = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`
+    const API = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API_KEY}`
     fetch(API)
       .then((res) => res.json())
       .then((res) => {
