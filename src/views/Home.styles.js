@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export const Container = styled.div``
 
 export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   position: relative;
   width: 600px;
   height: 300px;
@@ -12,6 +14,30 @@ export const Wrapper = styled.div`
   background-color: ${({ theme: { colors } }) => colors.white};
   font-size: 25px;
   animation: entry 0.3s ease-in-out;
+
+  p {
+    text-decoration: underline;
+  }
+`
+
+export const LinksWrapper = styled.div`
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  flex-direction: column;
+
+  a {
+    color: ${({ theme: { colors } }) => colors.black};
+    text-decoration: none;
+
+    :nth-of-type(1) {
+      margin-top: 20px;
+    }
+
+    :hover {
+      text-decoration: underline;
+    }
+  }
 `
 
 export const LastWarning = styled.div`

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Modal from '../components/large/Modal/Modal'
 import WarningDetails from '../components/medium/WarningDetails'
 import useModal from '../components/large/Modal/useModal'
-import { Container, LastWarning, Wrapper } from './Home.styles'
+import { Container, LastWarning, LinksWrapper, Wrapper } from './Home.styles'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -30,12 +30,16 @@ const Home = () => {
       <Wrapper>
         <h2>Hello! What&apos;s up?</h2>
         <p>There is 5 warnings to look</p>
+        <LinksWrapper>
+          <Link to="/weather">Check the warnings ⚠️</Link>
+          <Link to="/weather">Check the weather 🌧️</Link>
+        </LinksWrapper>
       </Wrapper>
       {warnings.warnings[0] ? (
         <>
           <LastWarning>
             <p>
-              Take a look at the last warning ⬇️
+              Last warning ↘️
               <span>👀</span>
               <span>🙄</span>
             </p>
