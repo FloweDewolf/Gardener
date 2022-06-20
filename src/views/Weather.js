@@ -46,6 +46,7 @@ const Weather = () => {
             </form>
           </div>
         </SearchWrapper>
+        <p>Temperature {Math.floor(weather.main.temp)}°C</p>
         <p>Feels like {Math.floor(weather.main.feels_like)}°C</p>
         <p>Min {Math.floor(weather.main.temp_min)}°C</p>
         <p>Max {Math.floor(weather.main.temp_max)}°C</p>
