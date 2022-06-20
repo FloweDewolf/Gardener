@@ -6,4 +6,4 @@ https://gardener-82156.firebaseapp.com
 ### `cd Gardener`
 ### `npm i && npm start`
 
-## The site is not yet working on mobile devices
+## The site is not yet work on mobile devices
