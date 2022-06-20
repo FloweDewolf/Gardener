@@ -53,7 +53,7 @@ const Weather = () => {
         <p>Wind speed {Math.floor(weather.wind.speed * 3.6)} km/h</p>
         <p>Humidity {weather.main.humidity}%</p>
         <img
-          src={`http://openweathermap.org/img/wn/${`${String(
+          src={`https://openweathermap.org/img/wn/${`${String(
             weather.weather[0].icon
           ).slice(0, -1)}n`}@4x.png`}
           alt=""
