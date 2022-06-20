@@ -5,7 +5,7 @@ import useModal from 'components/large/Modal/useModal'
 
 import Modal from 'components/large/Modal/Modal'
 import WarningDetails from 'components/medium/WarningDetails'
-import { LastWarning, LinksWrapper, StyledWrapper } from './Home.styles'
+import { LastWarning, LinksWrapper, HelloWrapper } from './Home.styles'
 
 const Home = () => {
   const navigate = useNavigate()
@@ -28,14 +28,14 @@ const Home = () => {
 
   return (
     <>
-      <StyledWrapper>
+      <HelloWrapper>
         <h2>Hello! What&apos;s up?</h2>
         <p>There is 5 warnings to look</p>
         <LinksWrapper>
           <Link to="/warnings">Check the warnings ⚠️</Link>
           <Link to="/weather">Check the weather 🌧️</Link>
         </LinksWrapper>
-      </StyledWrapper>
+      </HelloWrapper>
       {warnings.warnings[0] ? (
         <>
           <LastWarning>

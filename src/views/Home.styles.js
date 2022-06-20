@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Wrapper from 'components/small/Wrapper'
 
-export const StyledWrapper = styled(Wrapper)`
+export const HelloWrapper = styled(Wrapper)`
   position: relative;
   height: 300px;
   margin: 100px 50px 0;
