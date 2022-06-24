@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const weatherSlice = createSlice({
   name: 'weather',
   initialState: {
-    value: {},
+    value: {} as any,
   },
   reducers: {
     setWeather: (state, action) => {

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from 'hooks'
 import useModal from 'components/large/Modal/useModal'
 import Modal from 'components/large/Modal/Modal'
 import WarningDetails from 'components/medium/WarningDetails'
 
+// @ts-ignore
 import GithubLogo from 'assets/github.png'
+// @ts-ignore
 import LinkedInLogo from 'assets/linkedin.png'
 
 import {
@@ -17,8 +19,8 @@ import {
 
 const Home = () => {
   const navigate = useNavigate()
-  const isAuth = useSelector((state) => state.auth.value.isAuth)
-  const warnings = useSelector((state) => state.warnings.value)
+  const isAuth = useAppSelector((state) => state.auth.value.isAuth)
+  const warnings = useAppSelector((state) => state.warnings.value)
 
   const { isOpen, handleOpenModal, handleCloseModal } = useModal()
   const [currentWarning, setCurrentWarning] = useState({})
@@ -56,10 +58,8 @@ const Home = () => {
               <h3
                 onClick={() =>
                   handleOpenWarningDetails({
-                    title:
-                      warnings.warnings[warnings.warnings.length - 1].title,
-                    message:
-                      warnings.warnings[warnings.warnings.length - 1].message,
+                    title: warnings.warnings[warnings.warnings.length - 1].title,
+                    message: warnings.warnings[warnings.warnings.length - 1].message,
                   })
                 }
               >

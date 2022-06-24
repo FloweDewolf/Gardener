@@ -1,44 +1,57 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb",
-        "plugin:prettier/recommended"
-    ],
-    "settings": {
-        "import/resolver": {
-            "node": {
-                "paths": ["src"]
-            }
-        }
-    },
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react", "prettier"
-    ],
-    "rules": {
-        "prettier/prettier": "error",
-        "semi": 0,
-        "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
-        "react/function-component-definition": [1, { "namedComponents": "arrow-function" }],
-        "comma-dangle": 0,
-        "import/prefer-default-export": 0,
-        "no-param-reassign": 0,
-        "jsx-a11y/label-has-associated-control": 0,
-        "no-template-curly-in-string": 0,
-        "no-underscore-dangle": 0,
-        "jsx-a11y/click-events-have-key-events": 0,
-        "jsx-a11y/no-noninteractive-element-interactions": 0,
-        "no-nested-ternary": 0,
-        "no-constant-condition": 0
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "plugin:prettier/recommended"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "paths": ["src"]
+      }
     }
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint"],
+  "rules": {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "prettier/prettier": "error",
+    "semi": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".tsx"] }],
+    "react/function-component-definition": [
+      1,
+      { "namedComponents": "arrow-function" }
+    ],
+    "comma-dangle": 0,
+    "import/prefer-default-export": 0,
+    "no-param-reassign": 0,
+    "jsx-a11y/label-has-associated-control": 0,
+    "no-template-curly-in-string": 0,
+    "no-underscore-dangle": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-noninteractive-element-interactions": 0,
+    "no-nested-ternary": 0,
+    "no-constant-condition": 0
+  }
 }

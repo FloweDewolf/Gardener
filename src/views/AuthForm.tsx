@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { useAppSelector } from 'hooks'
 import { setInput, clearInputs, setIsAuth } from 'slices/authSlice'
 import { setLocation } from 'slices/locationReducer'
 
@@ -29,7 +30,7 @@ const AuthForm = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const authentication = getAuth()
-  const auth = useSelector((state) => state.auth.value)
+  const auth = useAppSelector((state) => state.auth.value)
   const dispatch = useDispatch()
   const buttonRef = useRef(null)
 
@@ -50,16 +51,14 @@ const AuthForm = () => {
 
     let isLoginPage = false
 
-    const authPromise = new Promise((resolve, reject) => {
+    const authPromise = new Promise<void>((resolve, reject) => {
       if (location.pathname === '/login' || location.pathname === '/') {
         isLoginPage = true
         signInWithEmailAndPassword(authentication, auth.email, auth.password)
           .then((res) => {
             resolve()
-            sessionStorage.setItem(
-              'Auth Token',
-              res._tokenResponse.refreshToken
-            )
+            // @ts-ignore
+            sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken)
             dispatch(setIsAuth())
             navigate('/home')
             dispatch(clearInputs())
@@ -87,17 +86,11 @@ const AuthForm = () => {
             }
           })
       } else if (location.pathname === '/register') {
-        createUserWithEmailAndPassword(
-          authentication,
-          auth.email,
-          auth.password
-        )
+        createUserWithEmailAndPassword(authentication, auth.email, auth.password)
           .then((res) => {
             resolve()
-            sessionStorage.setItem(
-              'Auth Token',
-              res._tokenResponse.refreshToken
-            )
+            // @ts-ignore
+            sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken)
             dispatch(setIsAuth())
             navigate('/home')
             dispatch(clearInputs())
@@ -125,9 +118,7 @@ const AuthForm = () => {
       {
         pending: `${isLoginPage ? 'Logging in...' : 'Registering in...'}`,
         error: `${isLoginPage ? 'Login failed' : 'Registration failed'}`,
-        success: `${
-          isLoginPage ? 'Login successful' : 'Registration successful'
-        }`,
+        success: `${isLoginPage ? 'Login successful' : 'Registration successful'}`,
       },
       {
         position: 'bottom-right',

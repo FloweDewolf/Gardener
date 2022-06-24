@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { useAppSelector } from 'hooks'
 import { setWeather } from 'slices/weatherSlice'
 
 import {
@@ -12,8 +13,8 @@ import {
 const Widget = () => {
   const dispatch = useDispatch()
 
-  const location = useSelector((state) => state.location.value)
-  const data = useSelector((state) => state.weather.value)
+  const location = useAppSelector((state) => state.location.value)
+  const data = useAppSelector((state) => state.weather.value)
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -22,9 +23,9 @@ const Widget = () => {
 
   const currentTime = () => {
     const date = new Date()
-    let hh = date.getHours()
-    let mm = date.getMinutes()
-    let ss = date.getSeconds()
+    let hh: string | number = date.getHours()
+    let mm: string | number = date.getMinutes()
+    let ss: string | number = date.getSeconds()
 
     if (hh === 0) {
       hh = 12

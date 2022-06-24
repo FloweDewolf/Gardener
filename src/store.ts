@@ -4,7 +4,7 @@ import warningsReducer from 'slices/warningsSlice'
 import locationReducer from 'slices/locationReducer'
 import weatherSlice from 'slices/weatherSlice'
 
-export default configureStore({
+const store = configureStore({
   reducer: {
     auth: authReducer,
     warnings: warningsReducer,
@@ -16,3 +16,8 @@ export default configureStore({
       serializableCheck: false,
     }),
 })
+
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
+
+export default store

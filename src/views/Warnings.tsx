@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react'
-import { useSelector } from 'react-redux'
 
 import WarningDetails from 'components/medium/WarningDetails'
 
@@ -16,13 +15,14 @@ import {
 
 import Modal from '../components/large/Modal/Modal'
 import useModal from '../components/large/Modal/useModal'
+import { useAppSelector } from '../hooks'
 
 const Warnings = () => {
   const refs = useRef([])
   const [currentWarning, setCurrentWarning] = useState({})
   const { isOpen, handleOpenModal, handleCloseModal } = useModal()
 
-  const warnings = useSelector((state) => state.warnings.value)
+  const warnings = useAppSelector((state) => state.warnings.value)
 
   const handleDeleteOne = async (id) => {
     refs.current.forEach((element) => {
@@ -71,9 +71,7 @@ const Warnings = () => {
               <StyledUl>
                 {warnings.warnings.map((warning) => (
                   <li
-                    ref={(element) =>
-                      refs.current.push({ element, id: warning.id })
-                    }
+                    ref={(element) => refs.current.push({ element, id: warning.id })}
                     key={warning.id}
                   >
                     <SingleWarning>

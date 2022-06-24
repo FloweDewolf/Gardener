@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Navigation from 'components/large/Navigation/Navigation'
+// @ts-ignore
 import { ReactComponent as BlobSvg } from 'assets/blob.svg'
 import { BlobContainer, Container } from './Template.styles'
 import Widget from './large/Widget/Widget'

@@ -1,12 +1,13 @@
 import React, { useState, useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setLocation } from 'slices/locationReducer'
 import { useNavigate } from 'react-router-dom'
 
 import { Container, SearchWrapper } from './Weather.styles'
+import { useAppSelector } from '../hooks'
 
-const Weather = () => {
-  const weather = useSelector((state) => state.weather.value)
+const Weather: any = () => {
+  const weather = useAppSelector((state) => state.weather.value)
   const dispatch = useDispatch()
   const [city, setCity] = useState('')
   const ref = useRef(null)
@@ -59,9 +60,9 @@ const Weather = () => {
         <p>Wind speed {Math.floor(weather.wind.speed * 3.6)} km/h</p>
         <p>Humidity {weather.main.humidity}%</p>
         <img
-          src={`https://openweathermap.org/img/wn/${`${String(
+          src={`https://openweathermap.org/img/wn/${String(
             weather.weather[0].icon
-          ).slice(0, -1)}n`}@4x.png`}
+          ).slice(0, -1)}n@4x.png`}
           alt=""
         />
       </Container>

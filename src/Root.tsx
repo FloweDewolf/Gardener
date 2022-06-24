@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
 import { Routes, Route, useNavigate } from 'react-router-dom'
+
+import { useAppSelector } from './hooks'
 
 import AuthForm from './views/AuthForm'
 import App from './views/App'
 
 const Root = () => {
-  const isAuth = useSelector((state) => state.auth.value.isAuth)
+  const isAuth = useAppSelector((state) => state.auth.value.isAuth)
   const navigate = useNavigate()
 
   useEffect(() => {

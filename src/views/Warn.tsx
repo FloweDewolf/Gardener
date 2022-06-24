@@ -1,5 +1,6 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { useAppSelector } from 'hooks'
 import { changeFormValue, clearForm } from 'slices/warningsSlice'
 
 import { toast } from 'react-toastify'
@@ -7,15 +8,10 @@ import { toast } from 'react-toastify'
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../firebase'
 
-import {
-  Container,
-  StyledForm,
-  InputWrapper,
-  StyledButton,
-} from './Warn.styles'
+import { Container, StyledForm, InputWrapper, StyledButton } from './Warn.styles'
 
 const Warn = () => {
-  const warnings = useSelector((state) => state.warnings.value)
+  const warnings = useAppSelector((state) => state.warnings.value)
   const dispatch = useDispatch()
 
   const handleSubmitInWarn = (e) => {

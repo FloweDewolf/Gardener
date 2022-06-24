@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react'
-// import styled from 'styled-components'
-
 import { Routes, Route, useNavigate } from 'react-router-dom'
-
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { useAppSelector } from 'hooks'
 import { updateWarnings } from 'slices/warningsSlice'
 
 import Template from 'components/Template'
@@ -18,7 +16,7 @@ import Weather from './Weather'
 
 const App = () => {
   const dispatch = useDispatch()
-  const isAuth = useSelector((state) => state.auth.value.isAuth)
+  const isAuth = useAppSelector((state) => state.auth.value.isAuth)
   const navigate = useNavigate()
 
   useEffect(() => {
