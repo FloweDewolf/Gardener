@@ -22,7 +22,6 @@ const warningsSlice = createSlice({
   },
 })
 
-export const { changeFormValue, clearForm, updateWarnings } =
-  warningsSlice.actions
+export const { changeFormValue, clearForm, updateWarnings } = warningsSlice.actions
 
 export default warningsSlice.reducer

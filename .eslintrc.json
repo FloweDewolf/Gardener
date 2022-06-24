@@ -36,7 +36,7 @@
         "tsx": "never"
       }
     ],
-    "prettier/prettier": "error",
+    "prettier/prettier": "warn",
     "semi": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".tsx"] }],
     "react/function-component-definition": [
