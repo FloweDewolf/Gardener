@@ -71,7 +71,9 @@ const Warnings = () => {
               <StyledUl>
                 {warnings.warnings.map((warning) => (
                   <li
-                    ref={(element) => refs.current.push({ element, id: warning.id })}
+                    ref={(element) =>
+                      refs.current.push({ element, id: warning.id })
+                    }
                     key={warning.id}
                   >
                     <SingleWarning>

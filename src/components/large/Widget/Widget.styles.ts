@@ -9,7 +9,8 @@ export const Container = styled.div`
   top: 200px;
   background-color: white;
   border: 2px solid ${({ theme: { colors } }) => colors.brown};
-  transform: ${({ isOpen }) => (isOpen ? 'translateX(0)' : 'translateX(400px)')};
+  transform: ${({ isOpen }) =>
+    isOpen ? 'translateX(0)' : 'translateX(400px)'};
   transition: transform 0.4s ease-in-out;
 `
 

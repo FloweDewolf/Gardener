@@ -58,7 +58,10 @@ const AuthForm = () => {
           .then((res) => {
             resolve()
             // @ts-ignore
-            sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken)
+            sessionStorage.setItem(
+              'Auth Token',
+              res._tokenResponse.refreshToken
+            )
             dispatch(setIsAuth())
             navigate('/home')
             dispatch(clearInputs())
@@ -86,11 +89,18 @@ const AuthForm = () => {
             }
           })
       } else if (location.pathname === '/register') {
-        createUserWithEmailAndPassword(authentication, auth.email, auth.password)
+        createUserWithEmailAndPassword(
+          authentication,
+          auth.email,
+          auth.password
+        )
           .then((res) => {
             resolve()
             // @ts-ignore
-            sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken)
+            sessionStorage.setItem(
+              'Auth Token',
+              res._tokenResponse.refreshToken
+            )
             dispatch(setIsAuth())
             navigate('/home')
             dispatch(clearInputs())
@@ -118,7 +128,9 @@ const AuthForm = () => {
       {
         pending: `${isLoginPage ? 'Logging in...' : 'Registering in...'}`,
         error: `${isLoginPage ? 'Login failed' : 'Registration failed'}`,
-        success: `${isLoginPage ? 'Login successful' : 'Registration successful'}`,
+        success: `${
+          isLoginPage ? 'Login successful' : 'Registration successful'
+        }`,
       },
       {
         position: 'bottom-right',

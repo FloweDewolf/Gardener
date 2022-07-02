@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "src",
     "allowSyntheticDefaultImports": true,
-      "jsx": "react"
+    "jsx": "react"
   },
   "include": ["src"]
 }

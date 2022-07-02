@@ -58,8 +58,10 @@ const Home = () => {
               <h3
                 onClick={() =>
                   handleOpenWarningDetails({
-                    title: warnings.warnings[warnings.warnings.length - 1].title,
-                    message: warnings.warnings[warnings.warnings.length - 1].message,
+                    title:
+                      warnings.warnings[warnings.warnings.length - 1].title,
+                    message:
+                      warnings.warnings[warnings.warnings.length - 1].message,
                   })
                 }
               >

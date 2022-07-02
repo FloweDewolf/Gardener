@@ -8,7 +8,12 @@ import { toast } from 'react-toastify'
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../firebase'
 
-import { Container, StyledForm, InputWrapper, StyledButton } from './Warn.styles'
+import {
+  Container,
+  StyledForm,
+  InputWrapper,
+  StyledButton,
+} from './Warn.styles'
 
 const Warn = () => {
   const warnings = useAppSelector((state) => state.warnings.value)
