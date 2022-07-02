@@ -23,7 +23,10 @@ const Home = () => {
   const warnings = useAppSelector((state) => state.warnings.value)
 
   const { isOpen, handleOpenModal, handleCloseModal } = useModal()
-  const [currentWarning, setCurrentWarning] = useState({})
+  const [currentWarning, setCurrentWarning] = useState({
+    title: '',
+    message: '',
+  })
 
   useEffect(() => {
     if (!isAuth) {

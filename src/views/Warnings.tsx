@@ -19,7 +19,10 @@ import { useAppSelector } from '../hooks'
 
 const Warnings = () => {
   const refs = useRef([])
-  const [currentWarning, setCurrentWarning] = useState({})
+  const [currentWarning, setCurrentWarning] = useState({
+    title: '',
+    message: '',
+  })
   const { isOpen, handleOpenModal, handleCloseModal } = useModal()
 
   const warnings = useAppSelector((state) => state.warnings.value)
