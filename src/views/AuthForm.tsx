@@ -57,7 +57,7 @@ const AuthForm = () => {
         signInWithEmailAndPassword(authentication, auth.email, auth.password)
           .then((res) => {
             resolve()
-            // @ts-ignore prettier-ignore
+            // @ts-ignore
             sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken)
             dispatch(setIsAuth())
             navigate('/home')
@@ -93,7 +93,7 @@ const AuthForm = () => {
         )
           .then((res) => {
             resolve()
-            // @ts-ignore prettier-ignore
+            // @ts-ignore
             sessionStorage.setItem('Auth Token',res._tokenResponse.refreshToken)
             dispatch(setIsAuth())
             navigate('/home')
