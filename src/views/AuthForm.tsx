@@ -58,10 +58,7 @@ const AuthForm = () => {
           .then((res) => {
             resolve()
             // @ts-ignore
-            sessionStorage.setItem(
-              'Auth Token',
-              res._tokenResponse.refreshToken
-            )
+            sessionStorage.setItem('Auth Token', res._tokenResponse.refreshToken)
             dispatch(setIsAuth())
             navigate('/home')
             dispatch(clearInputs())
@@ -97,10 +94,7 @@ const AuthForm = () => {
           .then((res) => {
             resolve()
             // @ts-ignore
-            sessionStorage.setItem(
-              'Auth Token',
-              res._tokenResponse.refreshToken
-            )
+            sessionStorage.setItem('Auth Token',res._tokenResponse.refreshToken)
             dispatch(setIsAuth())
             navigate('/home')
             dispatch(clearInputs())
