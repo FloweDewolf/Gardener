@@ -43,7 +43,11 @@ const Home = () => {
     <>
       <HelloWrapper>
         <h2>Hello! What&apos;s up?</h2>
-        <p>There is 5 warnings to look</p>
+        {warnings.warnings.length === 1 ? (
+          <p>There is {warnings.warnings.length} warning to look</p>
+        ) : (
+          <p>There are {warnings.warnings.length} warnings to look</p>
+        )}
         <LinksWrapper>
           <Link to="/warnings">Check the warnings ⚠️</Link>
           <Link to="/weather">Check the weather 🌧️</Link>
